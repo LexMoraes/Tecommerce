@@ -9,8 +9,8 @@ class ClientSerializer(serializers.ModelSerializer):
     age = serializers.IntegerField(read_only=True, min_value=0, max_value=100)
 
     class Meta:
-        model = Cliente()
-        fields = ['__all__']
+        model = Cliente
+        fields = '__all__'
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -19,8 +19,8 @@ class ProductSerializer(serializers.ModelSerializer):
     registration = serializers.CharField(read_only=True, max_length=15)
 
     class Meta:
-        model = Product()
-        fields = ['__all__']
+        model = Product
+        fields = '__all__'
 
 
 class SaleSerializer(serializers.ModelSerializer):
@@ -30,8 +30,8 @@ class SaleSerializer(serializers.ModelSerializer):
     id_product = serializers.IntegerField(read_only=True)
 
     class Meta:
-        model = Sale()
-        fields = ['__all__']
+        model = Sale
+        fields = '__all__'
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
@@ -40,4 +40,4 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = ['__all__']
+        fields = '__all__'
