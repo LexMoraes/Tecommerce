@@ -5,56 +5,108 @@ class ModelBase(models.Model):
     id = models.BigAutoField(
         db_column='id',
         null=False,
-        primary_key=True
+        primary_key=True,
     )
     created_at = models.DateTimeField(
-        db_column='dt_created',
+        db_column='dt_created_at',
         auto_now_add=True,
-        null=True
+        null=False,
     )
     modified_at = models.DateTimeField(
-        db_column='dt_modified',
+        db_column='dt_modified_at',
         auto_now=True,
-        null=True
+        null=False,
     )
     active = models.BooleanField(
         db_column='cs_active',
+        default=True,
         null=False,
-        default=True
     )
 
     class Meta:
-        abstract = True
+        abstract = True #dizendo que é uma classe abstrata
         managed = True
 
 
-class Cliente(ModelBase):
+class Product(ModelBase):
+    description = models.TextField(
+        db_column='tx_description',
+        null=False,
+    )
+
+    quantity = models.IntegerField(
+        db_column='nb_quantity',
+        null=False,
+        default=0,
+    )
+
+
+class Client(ModelBase):
     name = models.CharField(
         db_column='tx_name',
-        max_length=100)
+        max_length=70,
+        null=False,
+    )
+
     age = models.IntegerField(
-        db_column='tx_age'
+        db_column='nb_age',
+        null=False,
     )
+
     rg = models.CharField(
-        max_length=12
+        db_column='tx_rg',
+        max_length=12,
+        null=False,
     )
+
     cpf = models.CharField(
-        max_length=12
+        db_column='tx_cpf',
+        max_length=12,
+        null=False,
     )
-
-
-class Product(ModelBase):
-    description = models.TextField(null=False)
-    quantity = models.IntegerField(null=False)
 
 
 class Employee(ModelBase):
-    name = models.CharField(null=False, max_length=100)
-    registration = models.CharField(null=False, max_length=100)
+    name = models.CharField(
+        db_column='tx_name',
+        max_length=70,
+        null=False,
+    )
+
+    registraction = models.CharField(
+        db_column='tx_registraction',
+        max_length=15,
+        null=False,
+    )
 
 
 class Sale(ModelBase):
-    nrf = models.CharField(null=False, max_length=255)
-    id_employee = models.ForeignKey(Employee, null=False, on_delete=models.PROTECT)
-    id_product = models.ForeignKey(Product, null=False, on_delete=models.PROTECT)
-    id_cliente = models.ForeignKey(Cliente, null=False, on_delete=models.PROTECT)
+    nrf = models.CharField(
+        db_column='tx_nrf',
+        null=False,
+        max_length=255,
+    )
+
+    employee = models.ForeignKey(
+        Employee,
+        db_column='id_employee',
+        null=False,
+        on_delete=models.DO_NOTHING,
+    )
+
+    client = models.ForeignKey(
+        Client,
+        db_column='id_client',
+        null=False,
+        on_delete=models.DO_NOTHING,
+    )
+
+    product = models.ForeignKey(
+        Product,
+        db_column='id_product',
+        null=False,
+        on_delete=models.DO_NOTHING,
+    )
+
+
+

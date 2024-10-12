@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-from pathlib import Path
 from os.path import exists
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,12 +27,13 @@ if exists(tecommerce_conf):
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u3ronjthq%&zson88d6dibx-vakm03o$mej7r(-s()2yx6d)ze'
+SECRET_KEY = 'django-insecure-eaqb$qjeld(j9!vns3kxq%o9!(6)a^_km*t2lj#c_02msz2ae^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -44,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'teste.apps.TesteConfig',
     'rest_framework',
-    'django_filters',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -118,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
-
+    
 USE_I18N = True
 
 USE_TZ = True
@@ -133,3 +135,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    )
+}

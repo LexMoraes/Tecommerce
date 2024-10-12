@@ -1,31 +1,33 @@
 from rest_framework import viewsets, permissions
-from teste import serializers, filters
-from teste.models import Cliente, Product, Employee, Sale
+from django_filters.rest_framework import DjangoFilterBackend
+
+from teste import models, serializers, filters
 
 
-class ClienteViewSet(viewsets.ModelViewSet):
-    queryset = Cliente.objects.all()
+class ClientViewSet(viewsets.ModelViewSet):
+    queryset = models.Client.objects.all()
     serializer_class = serializers.ClientSerializer
-    filterset_class = filters.ClienteFilter
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = serializers.ProductSerializer
-    filterset_class = filters.ProductFilter
+    filterset_class = filters.ClientFilter
     permission_classes = [permissions.IsAuthenticated]
 
 
 class EmployeeViewSet(viewsets.ModelViewSet):
-    queryset = Employee.objects.all()
+    queryset = models.Employee.objects.all()
     serializer_class = serializers.EmployeeSerializer
     filterset_class = filters.EmployeeFilter
     permission_classes = [permissions.IsAuthenticated]
 
 
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = models.Product.objects.all()
+    serializer_class = serializers.ProductSerializer
+    filterset_class = filters.ProductFilter
+    permission_classes = [permissions.IsAuthenticated]
+
+
 class SaleViewSet(viewsets.ModelViewSet):
-    queryset = Sale.objects.all()
+    queryset = models.Sale.objects.all()
     serializer_class = serializers.SaleSerializer
     filterset_class = filters.SaleFilter
     permission_classes = [permissions.IsAuthenticated]
+
