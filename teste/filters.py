@@ -5,10 +5,13 @@ from teste import models
 
 # Filtros de pesquisa
 LIKE = 'unaccent__icontains'
-ICONTAINS = 'icontains'
 EQUALS = 'exact'
-
 STARTS_WITH = 'startswith'
+IN = 'in'
+GT = 'gt'
+LT = 'lt'
+GTE = 'gte'
+LTE = 'lte'
 
 
 class ClientFilter(filters.FilterSet):
