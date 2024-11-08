@@ -1,6 +1,6 @@
 # Tecommerce
 
-Projeto realizado durante a disciplina de frameworks backend do curso de Desenvolvimento de Software da Etech-FPFtech
+Projeto de desenvolvimento de API básica, realizado durante a disciplina de frameworks backend do curso de Desenvolvimento de Software da Etech-FPFtech
 ### Configurações iniciais:
 - Passo 1: Criar diretório local para armazenar o zip extraído do projeto ou clonar o projeto do próprio github.
 - Passo 2: Gerar uma *virtual enviroment (venv)*:
