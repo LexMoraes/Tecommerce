@@ -13,4 +13,9 @@ Projeto de desenvolvimento de API básica, realizado durante a disciplina de fra
 - Passo 4: Instalar as dependências do projeto através do arquivo *requirements.txt*:
   ```bash
   pip install -r requirements.txt
-  ```   
+  ```
+
+### Ajuda e Referências
+
+
+Precisa de mais ajuda? Consulte a [Django documentation](https://docs.djangoproject.com/en/5.1/).
